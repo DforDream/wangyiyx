@@ -4,9 +4,9 @@ let load = require('gulp-load-plugins')()
 let del = require('del')
 
 // 删除dist目录
-task('delDist', async ()=>{
-  await del('./dist')
-})
+// task('delDist', async ()=>{
+//   await del('./dist')
+// })
 
 // 处理图片
 task('img', async ()=>{
@@ -38,6 +38,13 @@ task('sass', async ()=>{
   .pipe(load.connect.reload())
 })
 
+// 添加json文件
+task("json", async () => {
+  src("./data/*.json")
+    .pipe(dest("./dist/data"))
+    .pipe(load.connect.reload());
+})
+
 // 监听文件变化
 task('watch', async ()=>{
   watch('./pages/*.html',series('html'))
@@ -55,4 +62,4 @@ task('connect', async ()=>{
   })
 })
 
-task('dev', series('delDist','img','html','script','sass','connect','watch'))
+task('dev', series('json','img','html','script','sass','connect','watch'))
