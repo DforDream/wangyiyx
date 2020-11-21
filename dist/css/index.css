@@ -199,6 +199,8 @@ body, html {
 .header_nav {
   position: absolute;
   bottom: 0;
+  background: #fff;
+  height: 19px;
   color: #000;
   font-weight: 700;
   font-size: 14px;

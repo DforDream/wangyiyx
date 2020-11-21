@@ -9,4 +9,5 @@ require.config({
 require(["headerNav"], function (headerNav) {
   headerNav.download();
   headerNav.navTab();
+  headerNav.fixedTop();
 })

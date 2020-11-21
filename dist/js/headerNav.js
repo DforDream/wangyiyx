@@ -53,11 +53,33 @@ define(['jquery'], function ($) {
         });
     }
 
+    function fixedTop() {
+        $(window).scroll(function () {
+            console.log($(document).scrollTop());
+            if ($(document).scrollTop() >= 131) {
+                $(".header .header_nav").removeAttr("style").css({
+                    "position": "fixed",
+                    "top": 0
+                });
+                $(".header .header_navTab").removeAttr("style").css({
+                    "top": $(document).scrollTop() -154
+                });
+            } else {
+                $(".header .header_nav").removeAttr("style").css({
+                    "position": "absolute",
+                    "bottom": 0
+                });
+                $(".header .header_navTab").removeAttr("style");
+            }
+        })
+    }
+
 
 
 
     return {
         download: download,
-        navTab: navTab
+        navTab: navTab,
+        fixedTop: fixedTop
     }
 })
