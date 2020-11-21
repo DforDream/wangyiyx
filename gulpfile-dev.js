@@ -1,7 +1,7 @@
 // console.log('构建开发环境的包')
 let {task,src,dest,watch,series,parallel} = require('gulp')
 let load = require('gulp-load-plugins')()
-let del = require('del')
+// let del = require('del')
 
 // 删除dist目录
 // task('delDist', async ()=>{
@@ -18,7 +18,7 @@ task('img', async ()=>{
 // 处理JS
 task('script', async ()=>{
   src('./js/*.js')
-  .pipe(load.babel({ presets: ['@babel/env']}))
+  // .pipe(load.babel({ presets: ['@babel/env']}))
   .pipe(dest('./dist/js'))
   .pipe(load.connect.reload())
 })
@@ -51,6 +51,7 @@ task('watch', async ()=>{
   watch('./sass/*.scss',series('sass'))
   watch('./img/*.*',series('img'))
   watch('./js/*.js',series('script'))
+  watch('./data/*.json',series('json'))
 })
 
 // 自动刷新服务
