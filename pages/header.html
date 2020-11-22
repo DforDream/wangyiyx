@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+</head>
+
+<body>
+    <div class="header container_full">
+        <div class="header_top container_full">
+            <div class="container clearfix">
+                <div class="header_top_title l">
+                    <a href="#">关于防止近期不法分子冒充客服实施诈骗的公告</a>
+                </div>
+                <div class="header_top_nav r">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="#">登陆/注册</a>
+                        </li>
+                        <li>
+                            |&nbsp;&nbsp;&nbsp;<a href="#">我的订单</a>
+                        </li>
+                        <li>
+                            |&nbsp;&nbsp;&nbsp;<a href="#">会员</a>
+                        </li>
+                        <li>
+                            |&nbsp;&nbsp;&nbsp;<a href="#">甄选家</a>
+                        </li>
+                        <li class="listDown">
+                            |&nbsp;&nbsp;&nbsp;<a href="#">企业采购</a><span class="iconfont icon-jiantou"></span>
+                            <div>
+                                <p><a href="#">在线客服</a></p>
+                                <p><a href="#">2</a></p>
+                                <p><a href="#">3</a></p>
+                            </div>
+                        </li>
+                        <li class="listDown">
+                            |&nbsp;&nbsp;&nbsp;<a href="#">客服服务</a><span class="iconfont icon-jiantou"></span>
+                            <div>
+                                <p><a href="#">1</a></p>
+                                <p><a href="#">2</a></p>
+                                <p><a href="#">3</a></p>
+                                <p><a href="#">4</a></p>
+                            </div>
+                        </li>
+                        <li class="listDown">
+                            |&nbsp;&nbsp;&nbsp;<span class="iconfont icon-shouji"></span><a href="#">APP</a>
+                            <div class="erweima">
+                                <img src="../img/erweima_03.png" alt="">
+                                <em>下载领大颖新人红包</em>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="height: 140px;">
+            <div class="header_search clearfix">
+                <div class="header_search_logo l hxm_yanxuan-component">
+                    <a href="#">网易严检</a>
+                </div>
+                <div class="header_search_search l">
+                    <div>
+                        <input type="text" placeholder="12.12省钱卡" class="hxm_yanxuan-component">
+                        <button>搜索</button>
+                    </div>
+                </div>
+                <div class="header_search_cart r hxm_yanxuan-component">
+                    <a href="#">购物车</a>
+                    <em class="hxm_yanxuan-component">0</em>
+                </div>
+            </div>
+            <div class="header_nav clearfix">
+                <div class="header_nav_shouye l">
+                    <a href="#" class="header_nav_active mr30">首页</a>
+                </div>
+                <div class="header_nav_nav l">
+                    <ul class="clearfix">
+                        <!-- <li class="header_nav_item">
+                  <a href="#">居家生活</a>
+                </li> -->
+                    </ul>
+
+                </div>
+                <div class="header_nav_other l">
+                    <a href="#" class="mar30">为你严选</a>
+                    <a href="#" class="mar30">众筹</a>
+                </div>
+            </div>
+        </div>
+        <div class="header_navTab">
+            <!-- <div class="clearfix header_navTab_div">
+            <ol class="clearfix">
+              <p></p>
+              <li>
+                <div>
+                  <img src="" alt="">
+                  <div>
+                    <a href=""></a>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div> -->
+        </div>
+    </div>
+    <script src="./js/jquery-1.8.3.min.js"></script>
+    <script>
+        $(function () {
+            function download() {
+                $.ajax({
+                    url: "./data/top.json",
+                    success: function (data) {
+                        // console.log(data);
+                        var arr = data.data.cateList;
+                        // console.log(arr);
+                        for (var i = 0, leni = arr.length; i < leni; i++) {
+                            $(`<li class="header_nav_item"><a href="#">${arr[i].name}</a></li>`)
+                                .appendTo(".header_nav .header_nav_nav ul");
+                            var arrChilds = arr[i].subCateGroupList;
+                            // console.log(arrChilds);
+                            var div = $(`<div class="clearfix header_navTab_div"></div>`);
+                            div.appendTo(".header .header_navTab");
+                            for (var j = 0, lenj = arrChilds.length; j < lenj; j++) {
+                                var ol = $(`<ol class="clearfix"><p>${arrChilds[j].name}</p></ol>`);
+                                ol.appendTo(div);
+                                var categoryList = arrChilds[j].categoryList;
+                                // console.log(categoryList);
+                                for (var k = 0, lenk = categoryList.length; k < lenk; k++) {
+                                    if (k % 8 == 0) {
+                                        var li = $(`<li></li>`);
+                                        li.appendTo(ol);
+                                    }
+                                    $(`<div>
+                            <img src="${categoryList[k].bannerUrl}" alt="">
+                                <a href="">${categoryList[k].name}</a>
+                          </div>`).appendTo(li);
+                                }
+                            }
+                        }
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            }
+
+
+            function navTab() {
+                $(".header_nav .header_nav_nav ul").on("mouseenter", "li", function () {
+                    // console.log($(this).index());
+                    $(this).children("a").addClass("header_nav_active");
+                    $(this).siblings().children("a").removeClass("header_nav_active");
+                    var width = $(".header .header_navTab").children(".header_navTab_div").eq($(this)
+                        .index()).width();
+                    $(".header .header_navTab").children(".header_navTab_div").eq($(this).index())
+                    .show().siblings().hide();
+                    $(".header .header_navTab").children(".header_navTab_div").eq($(this).index()).css(
+                        "left", ($(document).width() - width) / 2)
+                })
+                $(".header").mouseleave(function () {
+                    $(".header .header_navTab").children(".header_navTab_div").hide();
+                    $(".header_nav .header_nav_nav ul").children("li").children("a").removeClass(
+                        "header_nav_active");
+                });
+            }
+
+            function fixedTop() {
+                $(window).scroll(function () {
+                    // console.log($(document).scrollTop());
+                    if ($(document).scrollTop() >= 131) {
+                        $(".header .header_nav").removeAttr("style").css({
+                            "position": "fixed",
+                            "top": 0
+                        });
+                        $(".header .header_navTab").removeAttr("style").css({
+                            "top": $(document).scrollTop() - 154
+                        });
+                    } else {
+                        $(".header .header_nav").removeAttr("style").css({
+                            "position": "absolute",
+                            "bottom": 0
+                        });
+                        $(".header .header_navTab").removeAttr("style");
+                    }
+                })
+            }
+            download();
+            navTab();
+            fixedTop();
+        })
+    </script>
+</body>
+
+</html>

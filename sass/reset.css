@@ -13,4 +13,16 @@ input{outline: none;}
 .clearfix::after{content: " ";display: block;width: 0;overflow: hidden;visibility: hidden;clear: both;}
 .l{float: left;}
 .r{float: right;}
-.icons {background: url(../images/default_icon_bg.png) no-repeat;}
+/* .icons {background: url(../images/default_icon_bg.png) no-repeat;} */
+html,body {
+    width: 100%;
+}
+.container_full {
+    width: 100%;
+    position: relative;
+}
+.container {
+    width: 1090px;
+    margin: 0 auto;
+    position: relative;
+}
