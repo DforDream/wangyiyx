@@ -8,6 +8,7 @@ define(["jquery"], function () {
         var index = 0;
         var imgs = null;
         var btns = null;
+        var timer = null;
         if (!imgs) {
             imgs = $(".main_banner_img").find("img");
         }
@@ -15,10 +16,14 @@ define(["jquery"], function () {
             btns = $(".main_banner_btn").find("a");
         }
         tab();
-        var timer = setInterval(function () {
-            index++;
-            tab();
-        }, 3000);
+        autoMove();
+        function autoMove(){
+            timer = setInterval(function () {
+                index++;
+                tab();
+            }, 3000);
+        }
+        
 
         function tab() {
             if (index > imgs.length - 1) {
@@ -33,10 +38,7 @@ define(["jquery"], function () {
             imgs.css("opacity", .2).eq($(this).index()).show().siblings().hide().end().animate({"opacity":1},300);
             btns.removeClass("active").eq($(this).index()).addClass("active");
             index = $(this).index();
-            timer = setInterval(function () {
-                index++;
-                tab();
-            }, 3000);
+            autoMove();
             return false;
         })
 
@@ -51,11 +53,20 @@ define(["jquery"], function () {
                 index++;
             }
             tab();
-            timer = setInterval(function () {
-                index++;
-                tab();
-            }, 3000);
+            autoMove();
         })
+
+
+        $(".main_banner").mouseenter(function () {
+            clearInterval(timer);
+        })
+        $(".main_banner").mouseleave(function () {
+            clearInterval(timer);
+            autoMove();
+        })
+        
+
+
     }
 
 
