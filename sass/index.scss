@@ -112,34 +112,37 @@
                     position: relative;
                     text-align: center;
                     cursor: pointer;
-                    & > div {
-                        height: 266px;
-                        background: #f4f4f4;
-                        &  > img {
-                            width: 264px;
+                    a {
+                        & > div {
                             height: 266px;
+                            background: #f4f4f4;
+                            &  > img {
+                                width: 264px;
+                                height: 266px;
+                            }
+                        }
+                        & > div:first-child{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                       
+                        p {
+                            margin-top: 32px;
+                            line-height: 20px;
+                            color: #333;
+                            text-align: center;
+                            font-weight: 700;
+                            width: 160px;
+                            margin-left: 52px;
+                        }
+                        em {
+                            color: #cc9756;
+                            line-height: 20px;
+                            font-size: 14px;
                         }
                     }
-                    & > div:first-child{
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                    }
-                   
-                    p {
-                        margin-top: 32px;
-                        line-height: 20px;
-                        color: #333;
-                        text-align: center;
-                        font-weight: 700;
-                        width: 160px;
-                        margin-left: 52px;
-                    }
-                    em {
-                        color: #cc9756;
-                        line-height: 20px;
-                        font-size: 14px;
-                    }
+                    
                 }
                 & > div:hover {
                     background: #f4f4f4;
@@ -201,6 +204,7 @@
         font-size: 10px;
         color: #bc3b3b;
         border: 1px solid #e2ded6;
+        background: #fff;
         div {
             padding-bottom: 5px;
             border-bottom: 1px solid #e2ded6;
@@ -218,6 +222,88 @@
             text-align: center;
             line-height: 70px;
             cursor: pointer;
+            display: none;
+        }
+    }
+    &_popular {
+        height: 738px;
+        background: #f4f0ea;
+        .main_news_title p {
+            margin-right: 50px;
+            cursor: pointer;
+        }
+        .main_news_title .active {
+            border-bottom: 2px solid #cc9756;
+            color: #cc9756;
+        }
+        &_goods {
+            &_width {
+                z-index: 10;
+            }
+            &_width, &_hots{
+                position: absolute;
+                width: 1102px;
+                height: 580px;
+                div {
+                    float: left;
+                    width: 224px;
+                    height: 280px;
+                    background: #fff;
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                    text-align: center;
+                    overflow: hidden;
+                    img {
+                        width: 224px;
+                        height: 180px;
+                    }
+                    p {
+                        padding-top: 34px;
+                        line-height: 18px;
+                        font-size: 12px;
+                        color: #333333;
+                        font-weight: 700;
+                        border-top: 1px solid #e2ded6;
+                    }
+                    em{
+                        color: #d4282d;
+                        font-size: 12px;
+                        line-height: 26px;
+                    }
+                    del {
+                        color: #999999;
+                    }
+                    img:hover {
+                        transform: scale(1.1);
+                        transition-duration: 1s;
+                    }
+                }
+                & div:first-child {
+                    width: 390px;
+                    height: 570px;
+                    background: #fff;
+                    img {
+                        width: 390px;
+                        height: 400px;
+                    }
+                    p {
+                        padding-top: 44px;
+                        line-height: 38px;
+                        font-size: 18px;
+                        color: #333333;
+                        font-weight: 700;
+                        border-top: 1px solid #e2ded6;
+                    }
+                    em{
+                        color: #d4282d;
+                        font-size: 18px;
+                        line-height: 32px;
+                    }
+                    del {
+                        color: #999999;
+                    }
+                }
+            }
         }
     }
 }
