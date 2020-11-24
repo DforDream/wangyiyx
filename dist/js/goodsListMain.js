@@ -68,7 +68,7 @@ define(["jquery"], function ($) {
     }
 
 
-
+    // 商品列表页数据加载
     function goodsListDownload() {
         $.ajax({
             url: "../data/goodsList.json",
@@ -99,11 +99,6 @@ define(["jquery"], function ($) {
             }
         })
     }
-
-
-
-
-
 
     return {
         download: download,

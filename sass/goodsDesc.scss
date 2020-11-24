@@ -1,0 +1,130 @@
+.main {
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    background: #fff;
+    padding: 30px 0;
+    &_fangdajing {
+        &_img {
+            div:first-child{
+                cursor: move;
+                position: relative;
+                p {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 230px;
+                    height: 230px;
+                    background: #fff;
+                    opacity: .3;
+                    display: none;
+                }
+                & > img {
+                    width: 430px;
+                    height: 430px;
+                }
+            }
+            div:last-child {
+                margin-top: 10px;
+                img{
+                    float: left;
+                    width: 78px;
+                    height: 78px;
+                    margin-right: 8px;
+                    cursor: pointer;
+                    border: 1px solid #fff;
+                }
+                img:hover {
+                    border: 1px solid #cc9756;
+                }
+            }
+        }
+        &_bigimg {
+            position: absolute;
+            left: 440px;
+            top: 0;
+            width: 430px;
+            height: 430px;
+            overflow: hidden;
+            display: none;
+            img{
+                width: 200%;
+                height: 200%;
+            }
+        }
+        &_title {
+            width: 620px;
+            h2 {
+                line-height: 32px;
+                color: #333;
+                font-size: 18px;
+                font-weight: 700;
+            }
+            em {
+                color: #999;
+                line-height: 24px;
+            }
+            div:first-of-type {
+                background: #f5f3ef;
+                cursor: pointer;
+                h3 {
+                    height: 38px;
+                    line-height: 38px;
+                    color: white;
+                    background: #f38245;
+                    font-size: 16px;
+                }
+                p {
+                    line-height: 52px;
+                    padding-left: 10px;
+                    span {
+                        color: #999;
+                    }
+                    strong {
+                        font-size: 26px;
+                        color: red;
+                    }
+                    del {
+                        color: #a19999;
+                    }
+                }
+            }
+            & > p {
+                margin-top: 10px;
+                width: 190px;
+                height: 32px;
+                line-height: 32px;
+                span{
+                    float: right;
+                    width: 35px;
+                    height: 30px;
+                    border: 1px solid #dddddd;
+                    text-align: center;
+                    line-height: 30px;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+                input {
+                    float: right;
+                    width: 60px;
+                    height: 30px;
+                    border: none;
+                    border-top: 1px solid #dddddd;
+                    border-bottom: 1px solid #dddddd;
+                    text-align: center;
+                }
+            }
+            .addCart {
+                width: 168px;
+                height: 48px;
+                border-radius: 3px;
+                background: #b4a078;
+                color: white;
+                text-align: center;
+                line-height: 48px;
+                margin-top: 10px;
+                margin-left: 185px;
+                cursor: pointer;
+            }
+        }
+    }
+}
