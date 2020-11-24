@@ -474,10 +474,15 @@
 }
 
 .bottomNav_news_tab .tab_div > div a > div:last-child p strong {
+  float: left;
+  width: 160px;
   line-height: 32px;
   font-size: 16px;
   color: #333;
   font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .bottomNav_news_tab .tab_div > div a > div:last-child p em {
@@ -485,6 +490,7 @@
   margin-right: 10px;
   color: #b4a078;
   font-size: 14px;
+  margin-top: 5px;
 }
 
 .bottomNav_news_tab .tab_div > div a > div:last-child b {

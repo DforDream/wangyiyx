@@ -7,6 +7,7 @@ require.config({
 
 require(["indexMain"], function (indexMain) {
   indexMain.loadHeader(); // 加载头部模块
+  indexMain.loadFooter(); // 尾部模块加载
   indexMain.move(); // banner部分
   indexMain.pervNextPosition(); // perv和next按钮定位
   indexMain.download(); // 首页数据加载

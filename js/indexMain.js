@@ -3,6 +3,10 @@ define(["jquery"], function () {
     function loadHeader() {
         $(".loadHeader").load("./header.html");
     }
+    // 尾部模块加载
+    function loadFooter() {
+        $(".loadFooter").load("./footer.html");
+    }
 
     // banner部分
     function move() {
@@ -205,7 +209,7 @@ define(["jquery"], function () {
                       </div>
                       <div>
                         <span>${bottomNav[i].frontUserName}&nbsp;&nbsp;${time}</span>
-                        <p>
+                        <p class="clearfix">
                           <strong>${bottomNav[i].name}</strong>
                           <em>￥${bottomNav[i].retailPrice}</em>
                         </p>
@@ -425,6 +429,7 @@ define(["jquery"], function () {
 
     return {
         loadHeader: loadHeader,
+        loadFooter: loadFooter,
         move: move,
         pervNextPosition: pervNextPosition,
         download: download,
