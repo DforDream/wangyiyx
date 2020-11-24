@@ -1,0 +1,144 @@
+.main {
+    background: #f5f5f5;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    &_tab {
+        height: 310px;
+        overflow: hidden;
+        &_imgs {
+            height: 100%;
+            img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: .2;
+            }
+        }
+        &_btns {
+            position: absolute;
+            width: 85px;
+            height: 16px;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            text-align: center;
+            a {
+                display: inline-block;
+                margin: 0 8px;
+                width: 7px;
+                height: 7px;
+                background: #fff;
+                border: 1px solid #d4d4d3;
+                border-radius: 50%;
+            }
+            a:hover {
+                background: #333;
+            }
+            .active {
+                background: #333;
+            }
+        }
+        &_prev {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            margin: auto 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #d4d4d3;
+            text-align: center;
+            line-height: 50px;
+            font-size: 28px;
+            color: #999;
+            cursor: pointer;
+        }
+        &_next {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 20px;
+            margin: auto 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #d4d4d3;
+            text-align: center;
+            line-height: 50px;
+            font-size: 28px;
+            color: #999;
+            cursor: pointer;
+        }
+    }
+    &_goods_imgs {
+        width: 1102px;
+        box-sizing: border-box;
+        padding: 0 40px;
+        background: #fff;
+        border: 1px solid #fff;
+        margin-top: 30px;
+        & > div:hover {
+            background: #e3ddda;
+        }
+        & > div:hover > a > div:first-child {
+            display: none;
+        }
+        & > div {
+            float: left;
+            margin-right: 10px;
+            width: 245px;
+            position: relative;
+            margin-top: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            a {
+                & > div {
+                    width: 245px;
+                    height: 245px;
+                    background: #e3ddda;
+                    margin-bottom: 29px;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                & > div:first-child{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                p{
+                    line-height: 26px;
+                    color: #333;
+                    font-weight: 700;
+                    width: 165px;
+                    margin-left: 40px;
+                }
+                b {
+                    display: block;
+                    padding-bottom: 3px;
+                    width: 130px;
+                    margin-left: 57px;
+                    border-bottom: 1px solid #e8e8e8;
+                    em {
+                        color: #cc9756;
+                        font-size: 14px;
+                        line-height: 24px;
+                    }
+                    del {
+                        color: #999;
+                        font-size: 12px;
+                        line-height: 24px;
+                    }
+                }
+                span {
+                    line-height: 48px;
+                    color: #999;
+                }
+                
+            }
+        }
+    }
+}

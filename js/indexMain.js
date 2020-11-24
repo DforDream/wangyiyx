@@ -9,11 +9,11 @@ define(["jquery"], function () {
     }
     // 加载fixedLeft
     function loadFixedLeft() {
-        $(".main .main_news .loadFixedLeft").load("./fixedLeft.html");
+        $(".loadFixedLeft").load("./fixedLeft.html");
     }
     // 加载fixedRight
     function loadFixedRight() {
-        $(".main .main_news .loadFixedRight").load("./fixedRight.html");
+        $(".loadFixedRight").load("./fixedRight.html");
     }
 
     // banner部分
