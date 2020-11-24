@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .main_fixed_left {
+            width: 108px;
+            position: absolute;
+            top: 20px;
+            left: -140px;
+            z-index: 777;
+            text-align: center;
+            border: 1px solid #e2ded6;
+            border-radius: 5px;
+            padding-bottom: 5px;
+            background: #fff;
+        }
+
+        .main_fixed_left h2 {
+            line-height: 36px;
+            font-size: 16px;
+            color: #bb3343;
+            background: url(//yanxuan.nosdn.127.net/7c1853dd59b79d823ad3c4f3a0330049.png?imageView&type=webp) bottom no-repeat;
+        }
+
+        .main_fixed_left div {
+            margin: 0 10px;
+            border-bottom: 1px solid #e2ded6;
+        }
+
+        .main_fixed_left div img {
+            float: left;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        .main_fixed_left div p {
+            margin: 5px 0;
+        }
+
+        .main_fixed_left div p:hover a {
+            color: #cc9756;
+        }
+
+        .main_fixed_left div a {
+            display: block;
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main_fixed_left">
+        <h2>- 热销榜 -</h2>
+        <div class="clearfix">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png?quality=95&type=webp&imageView"
+                alt="">
+            <p>
+                <a href="#">全站</a>
+                <a href="#">热搜榜</a>
+            </p>
+        </div>
+        <div class="clearfix">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png?quality=95&type=webp&imageView"
+                alt="">
+            <p>
+                <a href="#">全站</a>
+                <a href="#">热搜榜</a>
+            </p>
+        </div>
+        <div class="clearfix">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png?quality=95&type=webp&imageView"
+                alt="">
+            <p>
+                <a href="#">全站</a>
+                <a href="#">热搜榜</a>
+            </p>
+        </div>
+        <div class="clearfix">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png?quality=95&type=webp&imageView"
+                alt="">
+            <p>
+                <a href="#">全站</a>
+                <a href="#">热搜榜</a>
+            </p>
+        </div>
+        <div class="clearfix">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png?quality=95&type=webp&imageView"
+                alt="">
+            <p>
+                <a href="#">全站</a>
+                <a href="#">热搜榜</a>
+            </p>
+        </div>
+        <div class="clearfix">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png?quality=95&type=webp&imageView"
+                alt="">
+            <p>
+                <a href="#">全站</a>
+                <a href="#">热搜榜</a>
+            </p>
+        </div>
+        <div class="clearfix">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png?quality=95&type=webp&imageView"
+                alt="">
+            <p>
+                <a href="#">全站</a>
+                <a href="#">热搜榜</a>
+            </p>
+        </div>
+        <div class="clearfix">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png?quality=95&type=webp&imageView"
+                alt="">
+            <p>
+                <a href="#">全站</a>
+                <a href="#">热搜榜</a>
+            </p>
+        </div>
+        <div class="clearfix">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png?quality=95&type=webp&imageView"
+                alt="">
+            <p>
+                <a href="#">全站</a>
+                <a href="#">热搜榜</a>
+            </p>
+        </div>
+    </div>
+    <script src="./js/jquery-1.8.3.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            // console.log($(document).scrollTop());
+            var width = (($(window).width() - 1090) / 2) - 140;
+            if ($(document).scrollTop() >= 600) {
+                $(".main_fixed_left").removeAttr("style").css({
+                    "left": width,
+                    "position": "fixed"
+                });
+            } else {
+                $(".main_fixed_left").removeAttr("style").css({
+                    "position": "absolute"
+                })
+            }
+        });
+    </script>
+</body>
+
+</html>

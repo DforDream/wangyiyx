@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .main_fixed_right {
+            width: 70px;
+            position: absolute;
+            top: 20px;
+            right: 0;
+            z-index: 777;
+            padding: 5px;
+            text-align: center;
+            font-size: 10px;
+            color: #bc3b3b;
+            border: 1px solid #e2ded6;
+            background: #fff;
+        }
+
+        .main_fixed_right div {
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e2ded6;
+        }
+
+        .main_fixed_right div .img {
+            width: 26px;
+            height: 26px;
+            background: url(../img/hxm_yanxuan-component_p_20170601_style_img_x1_icon-yxfixedtool-sb35ce57899-796b48a324.png) no-repeat 0 -491px;
+            margin: 10px 0 5px 22px;
+        }
+
+        .main_fixed_right div:last-child {
+            border: none;
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            line-height: 70px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main_fixed_right">
+        <div>
+            <img src="./img/fixed_right.png" alt="">
+            <p>扫码领</p>
+            <p>APP大额</p>
+            <p>新人红包</p>
+        </div>
+        <div>
+            <p class="img"></p>
+            <em>订阅电子刊</em>
+        </div>
+        <div>
+            <p class="img"></p>
+            <em>订阅电子刊</em>
+        </div>
+        <div>
+            回到顶部
+        </div>
+    </div>
+
+    <script src="./js/jquery-1.8.3.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            if ($(document).scrollTop() >= 600) {
+                $(".main_fixed_right").removeAttr("style").css({
+                    "position": "fixed"
+                });
+                $(".main_fixed_right").children("div:last-child").show();
+            } else {
+                $(".main_fixed_right").removeAttr("style").css({
+                    "position": "absolute"
+                })
+                $(".main_fixed_right").children("div:last-child").hide();
+            }
+        });
+        $(".main_fixed_right").children("div:last-child").click(function () {
+            var height = $(document).scrollTop();
+            var speed = 30;
+            var timer = null;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                height = height - speed;
+                $(document).scrollTop(height);
+                if ($(document).scrollTop() == 0) {
+                    clearInterval(timer);
+                }
+            }, 15)
+        })
+    </script>
+</body>
+
+</html>

@@ -7,6 +7,14 @@ define(["jquery"], function () {
     function loadFooter() {
         $(".loadFooter").load("./footer.html");
     }
+    // 加载fixedLeft
+    function loadFixedLeft() {
+        $(".main .main_news .loadFixedLeft").load("./fixedLeft.html");
+    }
+    // 加载fixedRight
+    function loadFixedRight() {
+        $(".main .main_news .loadFixedRight").load("./fixedRight.html");
+    }
 
     // banner部分
     function move() {
@@ -272,42 +280,6 @@ define(["jquery"], function () {
         })
     }
 
-    // 左右两个fixed定位实现
-    function fixed() {
-        $(window).scroll(function () {
-            // console.log($(document).scrollTop());
-            var width = (($(window).width() - 1090) / 2) - 140;
-            if ($(document).scrollTop() >= 600) {
-                $(".main_fixed_right").removeAttr("style").css({
-                    "position": "fixed"
-                });
-                $(".main_fixed_right").children("div:last-child").show();
-                $(".main_fixed_left").removeAttr("style").css({
-                    "left": width,
-                    "position": "fixed"
-                });
-            } else {
-                $(".main_fixed_right,.main_fixed_left").removeAttr("style").css({
-                    "position": "absolute"
-                })
-                $(".main_fixed_right").children("div:last-child").hide();
-            }
-        });
-        $(".main_fixed_right").children("div:last-child").click(function () {
-            var height = $(document).scrollTop();
-            var speed = 30;
-            var timer = null;
-            clearInterval(timer);
-            timer = setInterval(function () {
-                height = height - speed;
-                $(document).scrollTop(height);
-                if ($(document).scrollTop() == 0) {
-                    clearInterval(timer);
-                }
-            }, 15)
-        })
-    }
-
     // 编辑推荐 热销总榜 tab切换效果
     function hotsTab() {
         $(".main_popular .main_news_title").children("p").click(function () {
@@ -430,11 +402,12 @@ define(["jquery"], function () {
     return {
         loadHeader: loadHeader,
         loadFooter: loadFooter,
+        loadFixedLeft: loadFixedLeft,
+        loadFixedRight: loadFixedRight,
         move: move,
         pervNextPosition: pervNextPosition,
         download: download,
         newsTab: newsTab,
-        fixed: fixed,
         hotsTab: hotsTab,
         scaleImg: scaleImg,
         bottomNav: bottomNav
