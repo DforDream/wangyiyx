@@ -155,6 +155,18 @@ define(["jquery", "goodsDescMain"], function ($, goodsDescMain) {
                 $(".delete").click(function () {
                     deleteGood(this);
                     total();
+                    var $ipts = $(".goodsList").children("div").children("input:checkbox");
+                    var flag = true;
+                    for (var i = 0, leni = $ipts.length; i < leni; i++) {
+                        if (!$ipts.eq(i).prop("checked")) {
+                            flag = false;
+                        }
+                    }
+                    if (flag) {
+                        $(".all").prop("checked", "checked");
+                    } else {
+                        $(".all").prop("checked", "");
+                    }
                 })
 
                 // 点击批量删除按钮
@@ -166,6 +178,7 @@ define(["jquery", "goodsDescMain"], function ($, goodsDescMain) {
                         }
                     }
                     total();
+
                 })
 
                 // 删除商品函数封装
