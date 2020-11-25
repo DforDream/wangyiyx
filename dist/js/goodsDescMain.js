@@ -5,8 +5,10 @@ define(["jquery"], function ($) {
             success: function (data) {
                 var id = getId();
                 var arr = data.data;
+                var flag = false;
                 for (var i = 0, leni = arr.length; i < leni; i++){
                     if (arr[i].id == id) {
+                        flag = true;
                         $(`<img src="${arr[i].url}" alt="">`).appendTo(".main_fangdajing_img div:first-child");
                         $(`<img src="${arr[i].url}" alt="">`).appendTo(".main_fangdajing_bigimg");
                         $(`<h2>${arr[i].name}<span>${arr[i].highPraiseRate}%</span></h2>
@@ -28,6 +30,9 @@ define(["jquery"], function ($) {
                             $(`<img src="${imgs[j].url}" alt="">`).appendTo(".main_fangdajing_img div:last-child");
                         }
                     }
+                }
+                if (!flag) {
+                    $(".main_fangdajing").empty().html("<h2>该商品不见了</h2><a href='index.html'>返回首页</a>");
                 }
             },
             error: function (err) {
@@ -119,12 +124,47 @@ define(["jquery"], function ($) {
         })
     }
 
+    // 加入购物车操作
+    function addCart() {
+        $(".addCart").click(function () {
+            var value = parseInt($(".main_fangdajing_title .ipt").val());
+            var id = getId();
+            var flag = true; // goods是否有该商品 默认没有
+            var goods = localStorage.getItem("goods");
+            if (!goods) {
+                goods = [];
+                goods.push({ "id": id, "num": value });
+                localStorage.setItem("goods", JSON.stringify(goods));
+                alert("加入购物车成功");
+                return;
+            }
+            var arr = JSON.parse(goods);
+            for (var i = 0, leni = arr.length; i < leni; i++){
+                if (arr[i].id == id) {
+                    flag = false;
+                    var num = arr[i].num + value;
+                    arr.splice(i, 1);
+                    arr.push({ "id": id, "num": num });
+                    localStorage.setItem("goods", JSON.stringify(arr));
+                    alert("加入购物车成功");
+                    return;
+                }
+            }
+            if (flag) {
+                arr.push({ "id": id, "num": value });
+                localStorage.setItem("goods", JSON.stringify(arr));
+            }
+            alert("加入购物车成功");
+        })
+    }
+
 
 
     return {
         fangdajing: fangdajing,
         download: download,
-        spanClick: spanClick
+        spanClick: spanClick,
+        addCart: addCart
     }
 
 })

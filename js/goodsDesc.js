@@ -12,4 +12,5 @@ require(["indexMain","goodsDescMain"], function (indexMain,goodsDescMain) {
     goodsDescMain.fangdajing();  // 放大镜效果实现
     goodsDescMain.download(); // 商品详细数据加载
     goodsDescMain.spanClick(); // 商品点击+-效果实现
+    goodsDescMain.addCart(); // 添加购物车
 })
