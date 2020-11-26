@@ -30,8 +30,6 @@ define(["jquery"], function () {
         }
         // 执行一次动画
         tab();
-        // 自动执行动画
-        autoMove();
 
         function autoMove() {
             timer = setInterval(function () {
@@ -42,13 +40,14 @@ define(["jquery"], function () {
 
         // 运动函数
         function tab() {
+            clearInterval(timer);
             if (index > imgs.length - 1) {
                 index = 0;
             }
             // 图片和按钮显示设置
             imgs.css("opacity", .2).eq(index).show().siblings().hide().end().stop().animate({
                 "opacity": 1
-            }, 300);
+            }, 300, autoMove);
             btns.removeClass("active").eq(index).addClass("active");
         }
 
@@ -57,10 +56,9 @@ define(["jquery"], function () {
             clearInterval(timer);
             imgs.css("opacity", .2).eq($(this).index()).show().siblings().hide().end().stop().animate({
                 "opacity": 1
-            }, 300);
+            }, 2000, autoMove);
             btns.removeClass("active").eq($(this).index()).addClass("active");
             index = $(this).index();
-            autoMove();
             return false;
         })
 
@@ -76,7 +74,6 @@ define(["jquery"], function () {
                 index++;
             }
             tab();
-            autoMove();
         })
 
         // 鼠标的移入移出事件
@@ -238,15 +235,20 @@ define(["jquery"], function () {
     //  新品推荐功能
     function newsTab() {
         var index = 0;
-        var timer = setInterval(function () {
-            index++;
-            tab();
-        }, 5000)
+        var timer;
+        autoMove();
+        function autoMove() {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                index++;
+                tab();
+            }, 3000)
+        }
 
         function tab() {
             $(".main .main_news_tab").stop().animate({
                 "scrollLeft": 1100 * index
-            }, 2000);
+            }, 2000, autoMove);
             if (index >= 1) {
                 index = -1;
             }
@@ -262,10 +264,6 @@ define(["jquery"], function () {
                 // console.log(index);
             }
             tab();
-            timer = setInterval(function () {
-                index++;
-                tab();
-            }, 5000)
         })
 
         // 鼠标移入移出事件
@@ -273,10 +271,7 @@ define(["jquery"], function () {
             clearInterval(timer);
         }).mouseleave(function () {
             clearInterval(timer);
-            timer = setInterval(function () {
-                index++;
-                tab();
-            }, 5000)
+            autoMove();
         })
     }
 
@@ -343,6 +338,7 @@ define(["jquery"], function () {
         autoMove();
 
         function autoMove() {
+            clearInterval(timer);
             timer = setInterval(function () {
                 tab();
             }, 3500)
@@ -374,7 +370,7 @@ define(["jquery"], function () {
             }
             $(".bottomNav .bottomNav_news .bottomNav_news_tab").stop().animate({
                 "scrollLeft": index * 365
-            }, 500);
+            }, 1000, autoMove);
         }
 
         $(".bottomNav .bottomNav_news .bottomNav_news_tab").mouseenter(function () {
@@ -391,7 +387,6 @@ define(["jquery"], function () {
                 falg = false;
             }
             tab();
-            autoMove();
         })
     }
 

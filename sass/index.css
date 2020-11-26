@@ -332,6 +332,10 @@
   margin-right: 0;
 }
 
+.bottomNav {
+  user-select: none;
+}
+
 .bottomNav_news {
   height: 664px;
   background: #f4f0ea;

@@ -13,9 +13,11 @@
     <div class="header container_full">
         <div class="header_top container_full">
             <div class="container clearfix">
+                <!-- 顶部title 广告 -->
                 <div class="header_top_title l">
                     <a href="#">关于防止近期不法分子冒充客服实施诈骗的公告</a>
                 </div>
+                <!-- 顶部title 登陆注册部分 -->
                 <div class="header_top_nav r">
                     <ul class="clearfix">
                         <li>
@@ -59,25 +61,32 @@
             </div>
         </div>
         <div class="container" style="height: 140px;">
+            <!-- 顶部中间logo等部分 -->
             <div class="header_search clearfix">
+                <!-- logo -->
                 <div class="header_search_logo l hxm_yanxuan-component">
                     <a href="#">网易严检</a>
                 </div>
+                <!-- 搜索 -->
                 <div class="header_search_search l">
                     <div>
                         <input type="text" placeholder="12.12省钱卡" class="hxm_yanxuan-component">
                         <button>搜索</button>
                     </div>
                 </div>
+                <!-- 购物车 -->
                 <div class="header_search_cart r hxm_yanxuan-component">
                     <a href="#">购物车</a>
                     <em class="hxm_yanxuan-component">0</em>
                 </div>
             </div>
+            <!-- 底部商品数据导航 -->
             <div class="header_nav clearfix">
+                <!-- 首页 -->
                 <div class="header_nav_shouye l">
                     <a href="#" class="header_nav_active mr30">首页</a>
                 </div>
+                <!-- 商品数据分类 -->
                 <div class="header_nav_nav l">
                     <ul class="clearfix">
                         <!-- <li class="header_nav_item">
@@ -86,13 +95,16 @@
                     </ul>
 
                 </div>
+                <!-- 为你严选 -->
                 <div class="header_nav_other l">
                     <a href="#" class="mar30">为你严选</a>
                     <a href="#" class="mar30">众筹</a>
                 </div>
             </div>
         </div>
+        <!-- 详细商品数据分类 导航模块div -->
         <div class="header_navTab">
+            <!-- 数据通过ajax数据请求加载 -->
             <!-- <div class="clearfix header_navTab_div">
             <ol class="clearfix">
               <p></p>
@@ -111,34 +123,34 @@
     <script src="./js/jquery-1.8.3.min.js"></script>
     <script>
         $(function () {
-            function download() {
+            function download() { // 数据请求 加载头部导航模块数据
                 $.ajax({
                     url: "./data/top.json",
                     success: function (data) {
                         // console.log(data);
-                        var arr = data.data.cateList;
+                        var arr = data.data.cateList; // 获得头部大分项数据
                         // console.log(arr);
                         for (var i = 0, leni = arr.length; i < leni; i++) {
                             $(`<li class="header_nav_item"><a href="#">${arr[i].name}</a></li>`)
                                 .appendTo(".header_nav .header_nav_nav ul");
-                            var arrChilds = arr[i].subCateGroupList;
+                            var arrChilds = arr[i].subCateGroupList; // 获得子元素数据
                             // console.log(arrChilds);
                             var div = $(`<div class="clearfix header_navTab_div"></div>`);
-                            div.appendTo(".header .header_navTab");
+                            div.appendTo(".header .header_navTab"); // 先添加外部div
                             for (var j = 0, lenj = arrChilds.length; j < lenj; j++) {
                                 var ol = $(`<ol class="clearfix"><p>${arrChilds[j].name}</p></ol>`);
-                                ol.appendTo(div);
+                                ol.appendTo(div); // 总列数 ol 添加到div
                                 var categoryList = arrChilds[j].categoryList;
                                 // console.log(categoryList);
                                 for (var k = 0, lenk = categoryList.length; k < lenk; k++) {
                                     if (k % 8 == 0) {
-                                        var li = $(`<li></li>`);
+                                        var li = $(`<li></li>`); // 每列8个通过li区分
                                         li.appendTo(ol);
                                     }
                                     $(`<div>
                             <img src="${categoryList[k].bannerUrl}" alt="">
                                 <a href="">${categoryList[k].name}</a>
-                          </div>`).appendTo(li);
+                          </div>`).appendTo(li); // 将小项添加到li
                                 }
                             }
                         }
@@ -150,30 +162,31 @@
                 })
             }
 
-
+            // nav切换效果
             function navTab() {
                 $(".header_nav .header_nav_nav ul").on("mouseenter", "li", function () {
                     // console.log($(this).index());
-                    $(this).children("a").addClass("header_nav_active");
-                    $(this).siblings().children("a").removeClass("header_nav_active");
+                    $(this).children("a").addClass("header_nav_active"); // 添加选择的类名
+                    $(this).siblings().children("a").removeClass("header_nav_active"); // 其他兄弟节点移出
                     var width = $(".header .header_navTab").children(".header_navTab_div").eq($(this)
-                        .index()).width();
+                        .index()).width(); // 获取选择元素的宽度
                     $(".header .header_navTab").children(".header_navTab_div").eq($(this).index())
-                    .show().siblings().hide();
+                    .show().siblings().hide(); // 选中显示，其他隐藏
                     $(".header .header_navTab").children(".header_navTab_div").eq($(this).index()).css(
-                        "left", ($(document).width() - width) / 2)
+                        "left", ($(document).width() - width) / 2) // div的定位位置居中实现
                 })
-                $(".header").mouseleave(function () {
+                $(".header").mouseleave(function () { // 鼠标移出隐藏
                     $(".header .header_navTab").children(".header_navTab_div").hide();
                     $(".header_nav .header_nav_nav ul").children("li").children("a").removeClass(
                         "header_nav_active");
                 });
             }
 
+            // 滚轮事件 
             function fixedTop() {
                 $(window).scroll(function () {
                     // console.log($(document).scrollTop());
-                    if ($(document).scrollTop() >= 131) {
+                    if ($(document).scrollTop() >= 131) { // 页面向上滚动了131px 则将nav定位改为fixed
                         $(".header .header_nav").removeAttr("style").css({
                             "position": "fixed",
                             "top": 0
@@ -181,7 +194,7 @@
                         $(".header .header_navTab").removeAttr("style").css({
                             "top": $(document).scrollTop() - 154
                         });
-                    } else {
+                    } else { // 小于则移除fixed默认显示absolute
                         $(".header .header_nav").removeAttr("style").css({
                             "position": "absolute",
                             "bottom": 0

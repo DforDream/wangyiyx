@@ -1,10 +1,11 @@
 require.config({
+  // 模块路径
   paths: {
     "jquery": "jquery-1.8.3.min",
     "indexMain": "indexMain"
   }
 })
-
+// 依赖模块
 require(["indexMain"], function (indexMain) {
   indexMain.loadHeader(); // 加载头部模块
   indexMain.loadFooter(); // 尾部模块加载

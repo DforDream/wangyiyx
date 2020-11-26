@@ -1,4 +1,5 @@
 define(["jquery"], function ($) {
+    // 加载数据并对比id 渲染goods中的商品数据
     function download() {
         $.ajax({
             url: "../data/goodsDesc.json",
@@ -45,7 +46,7 @@ define(["jquery"], function ($) {
     function fangdajing() {
         $(".main .main_fangdajing_img").children("div:first-child").mouseenter(function (e) {
             var _this = this;
-            var width = $(this).width() - $(this).children("p").width() - 10;
+            var width = $(this).width() - $(this).children("p").width() - 10; // 布局时左侧有10pxmargin-right
             var height = $(this).height() - $(this).children("p").height();
             $(this).children("p").show();
             $(".main .main_fangdajing_bigimg").show();
@@ -94,6 +95,7 @@ define(["jquery"], function ($) {
         })
     }
 
+    // 获取商品id
     function getId() {
         var str = location.search.slice(1);
         var arr = str.split("&");

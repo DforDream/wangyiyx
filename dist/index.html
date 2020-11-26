@@ -13,28 +13,37 @@
 </head>
 
 <body>
+  <!-- 加载头部模块的 div -->
   <div class="container_full loadHeader" style="height:176px;"></div>
-
+  <!-- 网页主体部分 -->
   <div class="main">
+    <!-- banner图部分 -->
     <div class="main_banner  container_full">
+      <!-- banner图 -->
       <div class="main_banner_img">
         <img src="https://yanxuan.nosdn.127.net/2b470a0cb3ecb31af1f7f56c06c9704a.png" alt="">
         <img src="https://yanxuan.nosdn.127.net/54530fd0345d06b436c872ef0b04d815.png" alt="">
       </div>
+      <!-- banner小圆点按钮 -->
       <div class="main_banner_btn">
         <a href="#"></a>
         <a href="#"></a>
       </div>
+      <!-- banner上（prev）按钮 -->
       <div class="main_banner_perv iconfont icon-arrow-down1"></div>
+            <!-- banner下（next）按钮 -->
       <div class="main_banner_next iconfont icon-arrow-down"></div>
     </div>
+    <!-- 新品首发部分 -->
     <div class="main_news container_full">
       <div class="container">
+        <!-- 头部标题 -->
         <div class="main_news_title clearfix">
           <a href="#">新品首发</a>
           <p>为你。。。</p>
           <a href="#">更多新品 ></a>
         </div>
+        <!-- 商品详细数据 -->
         <div class="main_news_tab">
           <div class="tab_div clearfix">
             <!-- <div>
@@ -53,21 +62,27 @@
             </div> -->
           </div>
         </div>
+        <!-- 加载左侧定位模块 -->
         <div class="loadFixedLeft"></div>
       </div>
+      <!-- 新品部分轮播图的上下按钮 -->
       <div class="main_banner_perv iconfont icon-arrow-down1"></div>
       <div class="main_banner_next iconfont icon-arrow-down"></div>
+      <!-- 加载右侧定位模块 -->
      <div class="loadFixedRight"></div>
 
     </div>
+    <!-- 人气推荐部分 -->
     <div class="main_popular  container_full">
       <div class="container">
+        <!-- 人气推荐标题 -->
         <div class="main_news_title clearfix">
           <a href="#">人气推荐</a>
           <p class="active">编辑推荐</p>
           <p>热销总榜</p>
           <a href="#">更多新品 ></a>
         </div>
+        <!-- 编辑推荐商品数据分栏部分 -->
         <div class="main_popular_goods clearfix">
           <div class="main_popular_goods_width">
             <!-- <div>
@@ -82,6 +97,7 @@
               </a>
             </div> -->
           </div>
+          <!-- 热门总榜商品数据分栏部分 -->
           <div class="main_popular_goods_hots">
             <!-- <div>
               <a href="#">
@@ -96,6 +112,7 @@
         </div>
       </div>
     </div>
+    <!-- 居家生活等的数据加载 -->
     <!-- <div class="main_goods">
       <div class="container">
         <div class="main_news_title clearfix">
@@ -128,14 +145,17 @@
       </div> -->
   </div>
 
+  <!-- 底部轮播图部分 -->
   <div class="bottomNav">
     <div class="bottomNav_news container_full">
       <div class="container">
+        <!-- 底部轮播标题 -->
         <div class="main_news_title clearfix">
           <a href="#">大家都在说</a>
           <p>生活没有统一的标准</p>
           <a href="#">更多新品 ></a>
         </div>
+        <!-- 轮播商品数据 -->
         <div class="bottomNav_news_tab">
           <div class="tab_div clearfix">
             <!-- <div>
@@ -158,13 +178,15 @@
           </div>
         </div>
       </div>
+      <!-- 轮播上下按钮 -->
       <div class="main_banner_perv iconfont icon-arrow-down1"></div>
       <div class="main_banner_next iconfont icon-arrow-down"></div>
 
     </div>
   </div>
+  <!-- 加载底部模块 -->
   <div class="loadFooter"></div>
-
+<!-- 模块化使用requirejs 主入口文件为index.js -->
   <script src="./js/require.js" data-main="./js/index.js"></script>
 </body>
 

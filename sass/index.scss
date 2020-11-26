@@ -349,6 +349,7 @@
 }
 
 .bottomNav {
+    user-select: none;
     &_news {
         height: 664px;
         background: #f4f0ea;
